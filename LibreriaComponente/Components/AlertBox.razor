@@ -1,0 +1,15 @@
+﻿<div class="alert alert-danger">
+    <p>@Message - @Severity</p>
+    <p>@Log.Id</p>
+    @ChildContent
+</div>
+@code{
+    [Parameter]
+    public string  Message { get; set; }
+    [Parameter]
+    public string Severity { get; set; }
+    [Parameter]
+    public LogData Log { get; set; } = new LogData();
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

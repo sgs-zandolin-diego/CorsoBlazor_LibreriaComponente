@@ -1,0 +1,14 @@
+﻿@inject ILogData servizioLogs
+ 
+<h3>Lista Logs</h3>
+<span>Count: @servizioLogs.GetLogs().Count</span>
+@foreach(var log in servizioLogs.GetLogs())
+            {
+                @*<div class="alert alert-danger">
+                    @log.Message
+                </div>*@
+                <AlertBox Log="@log" Message="@log.Message" Severity="@log.Level">@Message</AlertBox>
+            }
+@code{
+    public string Message { get; set; } = "Ciao";
+}

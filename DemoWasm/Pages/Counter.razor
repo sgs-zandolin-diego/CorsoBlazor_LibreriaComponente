@@ -1,0 +1,5 @@
+﻿@page "/counter"
+@inject ILogData service
+
+<h1>Counter</h1>
+<LogTable Logs="@service.GetLogs()"></LogTable>

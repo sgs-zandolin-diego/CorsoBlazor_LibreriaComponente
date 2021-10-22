@@ -1,0 +1,26 @@
+﻿<h3>LogTable</h3>
+<table class="table table-striped table-bordered"> 
+    <thead> 
+    <tr> 
+        <th>Id</th> 
+        <th>Message</th>
+        <th>Severity</th>
+        </tr>
+    </thead>
+    <tbody> @foreach (var log in Logs)
+
+{<tr> <td>@log.Id</td> <td>@log.Message</td> <td>@log.Level</td>
+                                             <td><button @onclick="()=>Elimina(log)">Elimina</button></td>
+    </tr>} 
+        </tbody>
+ </table>
+@code {
+    [Parameter]
+    public List<LogData> Logs { get; set; } = new();
+
+    void Elimina(LogData log)
+    {
+        Logs.Remove(log);
+    }
+
+}
